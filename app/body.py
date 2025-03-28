@@ -1,4 +1,4 @@
-from enums import Starclass, PlanetType, AtmossphericComposition, VolcamismType, BioType
+from enums import Starclass, PlanetType, AtmossphericComposition, VolcanismType, BioType
 
 class Body:
 
@@ -13,7 +13,7 @@ class Body:
     parentStar: Starclass
     planetType: PlanetType
     atmossphericComposition: AtmossphericComposition
-    volcamismType: VolcamismType
+    volcamismType: VolcanismType
     atmosphericPressure: float
     gravity: float
     minTemperature: float
@@ -22,7 +22,7 @@ class Body:
 
     def __init__(self, name: str, id: int, systemName: str, systemId: int, biologicalCount: int,
                  parentStar: Starclass, planetType: PlanetType, atmossphericComposition: AtmossphericComposition,
-                 volcamismType: VolcamismType, atmosphericPressure: float, gravity: float, 
+                 volcamismType: VolcanismType, atmosphericPressure: float, gravity: float, 
                  minTemperature: float, maxTemperature: float):
         self.name = name
         self.id = id
@@ -54,7 +54,7 @@ class jsonBody(Body):
         self.parentStar = Starclass[jsonDict["ParentStar"]]
         self.planetType = PlanetType[jsonDict["PlanetType"]]
         self.atmossphericComposition = AtmossphericComposition[jsonDict["AtmosComp"]]
-        self.volcamismType = VolcamismType[jsonDict["Volcanism"]]
+        self.volcamismType = VolcanismType[jsonDict["Volcanism"]]
         self.atmosphericPressure = jsonDict["Pressure"]
         self.gravity = jsonDict["Gravity"]
         self.minTemperature = jsonDict["minTemp"]

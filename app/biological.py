@@ -1,4 +1,4 @@
-from enums import Starclass, PlanetType, AtmossphericComposition, VolcamismType, BioType, list_enum_to_json
+from enums import Starclass, PlanetType, AtmossphericComposition, VolcanismType, BioType, list_enum_to_json
 from body import Body
 
 class Biological:
@@ -11,7 +11,7 @@ class Biological:
     starclasses: list[Starclass]
     planetTypes: list[PlanetType]
     atmossphericCompositions: list[AtmossphericComposition]
-    volcanismTypes: list[VolcamismType]
+    volcanismTypes: list[VolcanismType]
     minAtmosphericPressure: float
     maxAtmosphericPressure: float
     minGravity: float
@@ -22,7 +22,7 @@ class Biological:
 
 
     def __init__(self, mainType: BioType, subType: str, value: int, starclasses: list[Starclass], planetTypes: list[PlanetType], 
-                 atmossphericCompositions: list[AtmossphericComposition], volcanismTypes: list[VolcamismType], 
+                 atmossphericCompositions: list[AtmossphericComposition], volcanismTypes: list[VolcanismType], 
                  minAtmosphericPressure: float, maxAtmosphericPressure: float, 
                  minGravity: float, maxGravity: float, minTemperature: float, maxTemperature: float, likelyhood: int):
         self.mainType = mainType
@@ -75,7 +75,10 @@ class jsonBiological(Biological):
         self.starclasses = [Starclass[name] for name in jsonDict["StarClasses"]]
         self.planetTypes = [PlanetType[name] for name in jsonDict["PlanetTypes"]]
         self.atmossphericCompositions = [AtmossphericComposition[name] for name in jsonDict["AtmosComps"]]
-        self.volcanismTypes = [VolcamismType[name] for name in jsonDict["VolcamismTypes"]]
+
+        print(jsonDict)
+
+        self.volcanismTypes = [VolcanismType[name] for name in jsonDict["VolcanismTypes"]]
 
         self.minAtmosphericPressure = jsonDict["minAtmosPressure"]
         self.maxAtmosphericPressure = jsonDict["maxAtmosPressure"]

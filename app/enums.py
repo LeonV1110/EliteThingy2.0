@@ -34,17 +34,33 @@ class Starclass(Enum):
     Any = 18
 
 class PlanetType(Enum):
-    Rocky = 0
-    HighMetal = 1
+    Rock = 0
+    HMC = 1
+    Ice = 2
+    RockIce = 3
 
 class AtmossphericComposition(Enum):
-    Ammonia = 0
+    NH3 = 0
+    CO2 = 1
+    Ar = 2
+    CH4 = 3
+    O = 4
+    Ni = 5
+    Ne = 6
+    SO2 = 7
+    H2O = 8
+    He = 9
+    Any = 10
+
     #TODO
 
 
-class VolcamismType(Enum):
+class VolcanismType(Enum):
     none = 0
+    Any = 1
+    Low = 2
     #TODO
 
 class BioType(Enum):
     Bacterium =  0
+    Fonticulua = 1

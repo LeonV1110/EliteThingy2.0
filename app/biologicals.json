@@ -1,1 +1,0 @@
-{"MainType":  "Bacterium", "SubType": "Alcyoneum", "Value": 10, "StarClasses": ["Any"], "PlanetTypes": ["Rocky", "HighMetal"], "AtmosComps": ["Ammonia"], "VolcamismTypes": ["none"], "minAtmosPressure": 0.0009, "maxAtmosPressure": 0.0471, "minGravity": 0.04, "maxGravity": 0.38, "minTemp": 57, "maxTemp": 187, "likelyhood": 16}
