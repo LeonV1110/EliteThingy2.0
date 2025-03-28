@@ -43,16 +43,16 @@ class Biological:
 
 
     def presence_possible(self, body: Body):
-        if (not body.parentStar in self.starclasses and 
-            not body.planetType in self.planetTypes and
-            not body.atmossphericComposition in self.atmossphericCompositions and
-            not body.volcamismType in self.volcanismTypes and 
-            not body.atmosphericPressure >= self.minAtmosphericPressure and 
-            not body.atmosphericPressure <= self.maxAtmosphericPressure and 
-            not body.gravity >= self.minGravity and 
-            not body.gravity <= self.maxGravity and
-            not body.minTemperature >= self.minTemperature and 
-            not body.maxTemperature <= self.maxTemperature):
+        if ((self.starclasses[0] != Starclass.Any and body.parentStar not in self.starclasses) or # assumes that any is always the only one in the list
+            body.planetType not in self.planetTypes or
+            body.atmossphericComposition not in self.atmossphericCompositions or
+            (self.volcanismTypes[0] != VolcanismType.Any and body.volcamismType not in self.volcanismTypes) or 
+            body.atmosphericPressure < self.minAtmosphericPressure or 
+            body.atmosphericPressure > self.maxAtmosphericPressure or 
+            body.gravity < self.minGravity or 
+            body.gravity > self.maxGravity or
+            (body.minTemperature > self.maxTemperature or body.maxTemperature < self.minTemperature)
+            ):
             # TODO reorder in importance of variable
             return False
         else: 
