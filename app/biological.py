@@ -45,7 +45,7 @@ class Biological:
     def presence_possible(self, body: Body):
         if ((self.starclasses[0] != Starclass.Any and body.parentStar not in self.starclasses) or # assumes that any is always the only one in the list
             body.planetType not in self.planetTypes or
-            body.atmossphericComposition not in self.atmossphericCompositions or
+            (self.atmossphericCompositions[0] != AtmossphericComposition.Any and body.atmossphericComposition not in self.atmossphericCompositions) or
             (self.volcanismTypes[0] != VolcanismType.Any and body.volcamismType not in self.volcanismTypes) or 
             body.atmosphericPressure < self.minAtmosphericPressure or 
             body.atmosphericPressure > self.maxAtmosphericPressure or 
