@@ -64,11 +64,11 @@ class Biological:
         atmosComps = list_enum_to_json(self.atmossphericCompositions)
         volcanism = list_enum_to_json(self.volcanismTypes)
 
-        return f'{{"MainType":  "{self.mainType}", "SubType": "{self.subType}", "Value": {self.value}, "StarClasses": {starclasses}, "PlanetTypes": {planetTypes}, "AtmosComps": {atmosComps}, "VolcamismTypes": {volcanism}, "minAtmosPressure": {self.minAtmosphericPressure}, "maxAtmosPressure": {self.maxAtmosphericPressure}, "minGravity": {self.minGravity}, "maxGravity": {self.maxGravity}, "minTemp": {self.minTemperature}, "maxTemp": {self.maxTemperature}, "likelyhood": {self.likelyhood}}}'
+        return f'{{"MainType":  "{self.mainType._name_}", "SubType": "{self.subType}", "Value": {self.value}, "StarClasses": {starclasses}, "PlanetTypes": {planetTypes}, "AtmosComps": {atmosComps}, "VolcamismTypes": {volcanism}, "minAtmosPressure": {self.minAtmosphericPressure}, "maxAtmosPressure": {self.maxAtmosphericPressure}, "minGravity": {self.minGravity}, "maxGravity": {self.maxGravity}, "minTemp": {self.minTemperature}, "maxTemp": {self.maxTemperature}, "likelyhood": {self.likelyhood}}}'
 
 class jsonBiological(Biological):
     def __init__(self, jsonDict: dict):
-        self.mainType = jsonDict["MainType"]
+        self.mainType = BioType[jsonDict["MainType"]]
         self.subType = jsonDict["SubType"]
         self.value = jsonDict["Value"]
         

@@ -3,7 +3,7 @@ from enum import Enum
 def list_enum_to_json(ls:list[Enum]):
     res = '['
     for item in ls:
-        res += (item._name_ + ', ')
+        res += ('"' + item._name_ + '", ')
     return res[:-2] + ']'
 
 def list_json_to_enum(ls:list[str], cls):
@@ -31,13 +31,14 @@ class Starclass(Enum):
     L = 15
     T = 16
     Y = 17
+    Any = 18
 
 class PlanetType(Enum):
     Rocky = 0
-    #TODO
+    HighMetal = 1
 
 class AtmossphericComposition(Enum):
-    none = 0
+    Ammonia = 0
     #TODO
 
 
@@ -46,4 +47,4 @@ class VolcamismType(Enum):
     #TODO
 
 class BioType(Enum):
-    Bacterium: 0
+    Bacterium =  0
