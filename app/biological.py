@@ -21,10 +21,14 @@ class Biological:
     likelyhood: int #likely hood
 
 
-    def __init__(self, starclasses: list[Starclass], planetTypes: list[PlanetType], 
+    def __init__(self, mainType: BioType, subType: str, value: int, starclasses: list[Starclass], planetTypes: list[PlanetType], 
                  atmossphericCompositions: list[AtmossphericComposition], volcanismTypes: list[VolcamismType], 
                  minAtmosphericPressure: float, maxAtmosphericPressure: float, 
                  minGravity: float, maxGravity: float, minTemperature: float, maxTemperature: float):
+        self.mainType = mainType
+        self.subType = subType
+        self.value = value
+        
         self.starclasses = starclasses
         self.planetTypes = planetTypes
         self.atmossphericCompositions = atmossphericCompositions
@@ -35,6 +39,7 @@ class Biological:
         self.maxGravity = maxGravity
         self.minTemperature = minTemperature
         self.maxTemperature = maxTemperature
+
 
     def presence_possible(self, body: Body):
         if (not body.parentStar in self.starclasses and 
@@ -51,4 +56,3 @@ class Biological:
             return False
         else: 
             return True
-        
