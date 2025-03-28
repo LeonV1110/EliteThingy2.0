@@ -1,0 +1,14 @@
+{ "timestamp":"2025-03-28T00:15:28Z", "event":"ShipLocker", "Items":[ 
+
+ ], "Components":[ 
+
+ ], "Consumables":[ 
+{ "Name":"healthpack", "Name_Localised":"Medkit", "OwnerID":0, "Count":100 }, 
+{ "Name":"energycell", "Name_Localised":"Energy Cell", "OwnerID":0, "Count":99 }, 
+{ "Name":"amm_grenade_emp", "Name_Localised":"Shield Disruptor", "OwnerID":0, "Count":100 }, 
+{ "Name":"amm_grenade_frag", "Name_Localised":"Frag Grenade", "OwnerID":0, "Count":98 }, 
+{ "Name":"amm_grenade_shield", "Name_Localised":"Shield Projector", "OwnerID":0, "Count":100 }, 
+{ "Name":"bypass", "Name_Localised":"E-Breach", "OwnerID":0, "Count":100 }
+ ], "Data":[ 
+
+ ] }

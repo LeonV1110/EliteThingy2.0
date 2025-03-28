@@ -1,0 +1,3 @@
+{ "timestamp":"2025-03-27T01:47:00Z", "event":"Shipyard", "MarketID":128778961, "StationName":"Bolden's Enterprise", "StarSystem":"Tir", "Horizons":true, "AllowCobraMkIV":false, "PriceList":[ 
+{ "id":0, "ShipType":"krait_light", "ShipType_Localised":"Krait Phantom", "ShipPrice":69869354 }
+ ] }
