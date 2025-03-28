@@ -18,7 +18,7 @@ class Biological:
     maxGravity: float
     minTemperature: float
     maxTemperature: float
-    likelyhood: int #likely hood
+    likelyhood: int #likely hood of subtype asuming maintype
 
 
     def __init__(self, mainType: BioType, subType: str, value: int, starclasses: list[Starclass], planetTypes: list[PlanetType], 

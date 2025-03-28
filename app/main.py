@@ -18,7 +18,8 @@ def get_most_likely_biologicals(body: Body, biological_list: list[Biological]) -
     possible_biologicals = get_possible_biologicals(body, biological_list)
 
     #sort on likelyhood, and reverse for high value first
-    sorted_possible_biologicals = sorted(possible_biologicals, key= lambda x: x.likelyhood).reverse()
+    sorted_possible_biologicals = sorted(possible_biologicals, key= lambda x: x.likelyhood)
+    sorted_possible_biologicals.reverse()
     # Remove duplicate maintypes, keep the first occurance
     return reduce(lambda acc, obj: acc if obj.mainType in {o.mainType for o in acc} else acc + [obj], 
                   sorted_possible_biologicals, [])
@@ -29,7 +30,8 @@ def get_most_valuable_biologicals(body: Body, biological_list: list[Biological])
     possible_biologicals = get_possible_biologicals(body, biological_list)
 
     #sort on value, and reverse for high value first
-    sorted_possible_biologicals = sorted(possible_biologicals, key= lambda x: x.value).reverse()
+    sorted_possible_biologicals = sorted(possible_biologicals, key= lambda x: x.value)
+    sorted_possible_biologicals.reverse()
     # Remove duplicate maintypes, keep the first occurance
     return reduce(lambda acc, obj: acc if obj.mainType in {o.mainType for o in acc} else acc + [obj], 
                   sorted_possible_biologicals, [])
