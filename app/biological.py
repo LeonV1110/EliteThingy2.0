@@ -75,9 +75,6 @@ class jsonBiological(Biological):
         self.starclasses = [Starclass[name] for name in jsonDict["StarClasses"]]
         self.planetTypes = [PlanetType[name] for name in jsonDict["PlanetTypes"]]
         self.atmossphericCompositions = [AtmossphericComposition[name] for name in jsonDict["AtmosComps"]]
-
-        print(jsonDict)
-
         self.volcanismTypes = [VolcanismType[name] for name in jsonDict["VolcanismTypes"]]
 
         self.minAtmosphericPressure = jsonDict["minAtmosPressure"]

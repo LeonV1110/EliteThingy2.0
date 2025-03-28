@@ -20,7 +20,7 @@ class Starclass(Enum):
     G = 4
     K = 5
     M = 6
-    Ae_Be = 7
+    Be = 7
     TTS = 8
     C = 9
     S = 10
@@ -32,6 +32,8 @@ class Starclass(Enum):
     T = 16
     Y = 17
     Any = 18
+    Ae = 19
+    
 
 class PlanetType(Enum):
     Rock = 0
@@ -64,3 +66,17 @@ class VolcanismType(Enum):
 class BioType(Enum):
     Bacterium =  0
     Fonticulua = 1
+    Aleoida = 2
+    Tussock = 3
+    Cactoida = 4
+    Clypeus = 5
+    Concha = 6
+    Electicae = 7
+    Frutexa = 8
+    Fumerola = 9
+    Fungoida = 10
+    Osseus = 11
+    Recepta = 12
+    Tubus = 13
+    Stratum = 14
+
