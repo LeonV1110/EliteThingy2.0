@@ -37,3 +37,25 @@ class Body:
         self.gravity = gravity
         self.minTemperature = minTemperature
         self.maxTemperature = maxTemperature
+
+
+
+    def to_json(self):
+        return f'{{"id":{self.id}, "Name":"{self.name}", "SystemId": {self.systemId}, "SystemName":"{self.systemName}", "BioCount": {self.biologicalCount}, "ParentStar": "{self.parentStar._name_}", "PlanetType": "{self.planetType._name_}", "AtmosComp": "{self.atmossphericComposition._name_}", "Volcanism": "{self.volcamismType._name_}", "Pressure": {round(self.atmosphericPressure, 2)}, "Gravity": {round(self.gravity, 2)}, "minTemp": {self.minTemperature}, "maxTemp": {self.maxTemperature}}}'
+
+
+class jsonBody(Body):
+    def __init__(self, jsonDict: dict):
+        self.name = jsonDict["Name"]
+        self.id = jsonDict["id"]
+        self.systemName = jsonDict["SystemName"]
+        self.systemId = jsonDict["SystemId"]
+        self.biologicalCount = jsonDict["BioCount"]
+        self.parentStar = Starclass[jsonDict["ParentStar"]]
+        self.planetType = PlanetType[jsonDict["PlanetType"]]
+        self.atmossphericComposition = AtmossphericComposition[jsonDict["AtmosComp"]]
+        self.volcamismType = VolcamismType[jsonDict["Volcanism"]]
+        self.atmosphericPressure = jsonDict["Pressure"]
+        self.gravity = jsonDict["Gravity"]
+        self.minTemperature = jsonDict["minTemp"]
+        self.maxTemperature = jsonDict["maxTemp"]

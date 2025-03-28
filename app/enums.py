@@ -1,5 +1,17 @@
 from enum import Enum
 
+def list_enum_to_json(ls:list[Enum]):
+    res = '['
+    for item in ls:
+        res += (item._name_ + ', ')
+    return res[:-2] + ']'
+
+def list_json_to_enum(ls:list[str], cls):
+    res = []
+    for item in ls:
+        res.append(cls[item])
+    return res
+
 class Starclass(Enum):
     O = 0
     B = 1
