@@ -2,7 +2,7 @@ import flask
 from body import Body
 from enums import Starclass, PlanetType, AtmossphericComposition, VolcanismType, BioType
 from input import Input
-from main import get_possible_biologicals, get_most_valuable_biologicals, get_least_valuable_biologicals
+from main import get_possible_biologicals, get_most_valuable_biologicals, get_least_valuable_biologicals, get_total_value
 from pathlib import Path
 
 app = flask.Flask(__name__)
@@ -15,6 +15,8 @@ def home():
     leastValue = []
     mostValue = []
     sortedAllPossible = []
+    totalLeast = -1
+    totalMost = -1
     if flask.request.method == 'POST':
 
         bioCount = int(flask.request.form.get('bioCount'))
@@ -38,9 +40,16 @@ def home():
         mostValue = get_most_valuable_biologicals(body, all_bio)
         allPossible = get_possible_biologicals(body, all_bio)
 
+        totalLeast = f"{get_total_value(body, leastValue):,}".replace(",",".")
+        totalMost = f"{get_total_value(body, mostValue):,}".replace(",",".")
+
         sortedAllPossible = sorted(allPossible, key= lambda x: x.value)
         sortedAllPossible.reverse()
-    return flask.render_template('index.html', jsonBody = jsonBody, leastValue = leastValue, mostValue = mostValue, allPossible = sortedAllPossible, Path = Path)
+    return flask.render_template('index.html', 
+                                 totalLeast = totalLeast, totalMost=totalMost, 
+                                 jsonBody = jsonBody, 
+                                 leastValue = leastValue, mostValue = mostValue, 
+                                 allPossible = sortedAllPossible, Path = Path)
 
 
 if __name__ == '__main__':

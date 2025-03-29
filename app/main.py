@@ -47,3 +47,10 @@ def get_least_valuable_biologicals(body: Body, biological_list: list[Biological]
     return reduce(lambda acc, obj: acc if obj.mainType in {o.mainType for o in acc} else acc + [obj], 
                   sorted_possible_biologicals, [])
 
+def get_total_value(body: Body, bio_list: list[Biological]):
+    running_total = 0
+    i = 0
+    for i in range(body.biologicalCount):
+        running_total += bio_list[i].value
+
+    return running_total
