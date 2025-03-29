@@ -7,6 +7,11 @@
 </head>
 <body>
     <div>
+        {% if error %}
+        {{error}}
+        {% endif %}
+    </div>
+    <div>
         <h1>Enter you planet details:</h1>
         <form method="post">
 
