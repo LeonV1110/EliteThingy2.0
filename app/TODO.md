@@ -1,7 +1,8 @@
 - Add total values
+- Side by side tables
 - Make fields keep value inbetween loads
 - Enter found bio-maintypes
 - Enter found bio-subtypes
 - Journal plugin
-- data driven distributions per bio-subtype
-- likelyhood data
+- Data driven distributions per bio-subtype
+- Likelyhood data
