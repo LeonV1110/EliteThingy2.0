@@ -46,7 +46,8 @@ class Biological:
         if ((self.starclasses[0] != Starclass.Any and body.parentStar not in self.starclasses) or # assumes that any is always the only one in the list
             body.planetType not in self.planetTypes or
             (self.atmossphericCompositions[0] != AtmossphericComposition.Any and body.atmossphericComposition not in self.atmossphericCompositions) or
-            (self.volcanismTypes[0] != VolcanismType.Any and ((body.volcamismType == VolcanismType.none or body.volcamismType == VolcanismType.Low ) and (self.volcanismTypes[0] != VolcanismType.none or self.volcanismTypes[0] != VolcanismType.Low)) and body.volcamismType not in self.volcanismTypes) or 
+            (self.volcanismTypes[0] != VolcanismType.Any and body.volcamismType not in self.volcanismTypes) and 
+            ((body.volcamismType == VolcanismType.none or body.volcamismType == VolcanismType.Low ) and (self.volcanismTypes[0] != VolcanismType.none and self.volcanismTypes[0] != VolcanismType.Low))  or 
             body.atmosphericPressure < self.minAtmosphericPressure or 
             body.atmosphericPressure > self.maxAtmosphericPressure or 
             body.gravity < self.minGravity or 

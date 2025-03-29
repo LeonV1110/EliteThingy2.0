@@ -1,0 +1,5 @@
+- Add total values
+- Make fields keep value inbetween loads
+- Enter found bio-maintypes
+- Enter found bio-subtypes
+- Journal plugin
