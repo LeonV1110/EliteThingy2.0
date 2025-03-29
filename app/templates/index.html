@@ -6,63 +6,72 @@
     <title>ExoBio form</title>
 </head>
 <body>
-    <h1>Enter you planet details:</h1>
-    <form method="post">
+    <div>
+        <h1>Enter you planet details:</h1>
+        <form method="post">
 
-        <table border="1">
-            <tr><td>Bio Count</td><td><input type="text" name="bioCount"></td></tr>
-            <tr><td>Star Class</td><td><input type="text" name="starclass"></td></tr>
-            <tr><td>Planet Type</td><td><input type="text" name="planetType"></td></tr>
-            <tr><td>Atmospheric Composition</td><td><input type="text" name="atmossphericComposition"></td></tr>
-            <tr><td>Volcanism Type</td><td><input type="text" name="volcanismType"></td></tr>
-            <tr><td>Atmospheric Pressure</td><td><input type="text" name="atmossphericPressure"></td></tr>
-            <tr><td>Gravity</td><td><input type="text" name="gravity"></td></tr>
-            <tr><td>Min Temperature</td><td><input type="text" name="minTemp"></td></tr>
-            <tr><td>Max Temperature</td><td><input type="text" name="maxTemp"></td></tr>
-        </table>
-        <button type="submit">Predict</button>
-    </form>
-
-    <h1> Results</h1>
-    <h2> Least valuable</h2>
-    <b>Total: </b> {{totalLeast}} Credits
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Biological</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for bio in leastValue %}
-            <tr>
-                <td> {{bio.mainType._name_}} {{bio.subType}}</td>
-                <td> {{bio.value}} </td>
-            </tr>
+            <table border="1">
+                <tr><td>Bio Count</td><td><input type="text" name="bioCount"></td></tr>
+                <tr><td>Star Class</td><td><input type="text" name="starclass"></td></tr>
+                <tr><td>Planet Type</td><td><input type="text" name="planetType"></td></tr>
+                <tr><td>Atmospheric Composition</td><td><input type="text" name="atmossphericComposition"></td></tr>
+                <tr><td>Volcanism Type</td><td><input type="text" name="volcanismType"></td></tr>
+                <tr><td>Atmospheric Pressure</td><td><input type="text" name="atmossphericPressure"></td></tr>
+                <tr><td>Gravity</td><td><input type="text" name="gravity"></td></tr>
+                <tr><td>Min Temperature</td><td><input type="text" name="minTemp"></td></tr>
+                <tr><td>Max Temperature</td><td><input type="text" name="maxTemp"></td></tr>
+            </table>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+    <div class="results">
+        <h1> Results</h1>
+        <div class="leastValue" style="width: 300px; display: table-cell;">
+            <h2> Least valuable</h2>
+            <b>Total: </b> {{totalLeast}} Credits
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Biological</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bio in leastValue %}
+                    <tr>
+                        <td> {{bio.mainType._name_}} {{bio.subType}}</td>
+                        <td> {{bio.value}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="mostValue" style="width: 300px; display: table-cell;">
+            <h2>Most valuable</h2>
+            <b>Total: </b> {{totalMost}} Credits
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Biological</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bio in mostValue %}
+                    <tr>
+                        <td> {{bio.mainType._name_}} {{bio.subType}}</td>
+                        <td> {{bio.value}} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="allPossible">
+            <h2>All possible in decending value order </h2>
+            {% for bio in allPossible: %}
+            {{ bio.mainType._name_ }} {{bio.subType}}  with Value: {{bio.value}}<br>
             {% endfor %}
-        </tbody>
-    </table>
-    <h2>Most valuable</h2>
-    <b>Total: </b> {{totalMost}} Credits
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Biological</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for bio in mostValue %}
-            <tr>
-                <td> {{bio.mainType._name_}} {{bio.subType}}</td>
-                <td> {{bio.value}} </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <h2>All possible in decending value order </h2>
-    {% for bio in allPossible: %}
-    {{ bio.mainType._name_ }} {{bio.subType}}  with Value: {{bio.value}}<br>
-    {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

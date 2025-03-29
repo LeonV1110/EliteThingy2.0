@@ -1,4 +1,3 @@
-- Side by side tables
 - add gracefull error handling
 - Make fields keep value inbetween loads
 - Enter found bio-maintypes
