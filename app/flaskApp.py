@@ -11,6 +11,10 @@ app = flask.Flask(__name__)
 def home():
     
     output = "Path.cwd()"
+    jsonBody = []
+    leastValue = []
+    mostValue = []
+    sortedAllPossible = []
     if flask.request.method == 'POST':
 
         bioCount = int(flask.request.form.get('bioCount'))
@@ -26,7 +30,7 @@ def home():
         
         body = Body('', 0, '', 0, bioCount, starclass, planetType, atmossphericComposition, volcanismType, atmossphericPressure, gravity, minTemp, maxTemp)
 
-        all_bio = Input.read_biologicals("C:\\Users\\Leonl\\Documents\\code projects\\EliteThingy2.0\\app\\biologicals")
+        all_bio = Input.read_biologicals("app\\biologicals")
 
 
         jsonBody = body.to_json()
