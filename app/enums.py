@@ -54,14 +54,11 @@ class AtmossphericComposition(Enum):
     He = 9
     Any = 10
 
-    #TODO
-
 
 class VolcanismType(Enum):
     none = 0
     Any = 1
     Low = 2
-    #TODO
 
 class BioType(Enum):
     Bacterium =  0
