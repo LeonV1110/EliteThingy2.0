@@ -38,7 +38,7 @@
                         <td>
                             <select name="planetType">
                                 {% for pt in planetTypes %}
-                                    <option value="{{ pt }}" {% if sc == body.planetType._name_ %}selected{% endif %}> {{ pt }} </option>
+                                    <option value="{{ pt }}" {% if pt == body.planetType._name_ %}selected{% endif %}> {{ pt }} </option>
                                 {% endfor %}
                             </select>
                         </td>
@@ -48,7 +48,7 @@
                         <td>
                             <select name="atmossphericComposition">
                                 {% for ac in atmossphericCompositions %}
-                                    <option value="{{ ac }}" {% if sc == body.atmossphericComposition._name_ %}selected{% endif %}> {{ ac }} </option>
+                                    <option value="{{ ac }}" {% if ac == body.atmossphericComposition._name_ %}selected{% endif %}> {{ ac }} </option>
                                 {% endfor %}
                             </select>
                         </td>
@@ -58,7 +58,7 @@
                         <td>
                             <select name="volcanismType">
                                 {% for vt in volcanismTypes %}
-                                    <option value="{{ vt }}" {% if sc == body.volcamismType._name_ %}selected{% endif %}> {{ vt }} </option>
+                                    <option value="{{ vt }}" {% if vt == body.volcamismType._name_ %}selected{% endif %}> {{ vt }} </option>
                                 {% endfor %}
                             </select>
                         </td>
