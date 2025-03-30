@@ -16,15 +16,76 @@
         <form method="post">
 
             <table border="1">
-                <tr><td>Bio Count</td><td><input type="text" name="bioCount"></td></tr>
-                <tr><td>Star Class</td><td><input type="text" name="starclass"></td></tr>
-                <tr><td>Planet Type</td><td><input type="text" name="planetType"></td></tr>
-                <tr><td>Atmospheric Composition</td><td><input type="text" name="atmossphericComposition"></td></tr>
-                <tr><td>Volcanism Type</td><td><input type="text" name="volcanismType"></td></tr>
-                <tr><td>Atmospheric Pressure</td><td><input type="text" name="atmossphericPressure"></td></tr>
-                <tr><td>Gravity</td><td><input type="text" name="gravity"></td></tr>
-                <tr><td>Min Temperature</td><td><input type="text" name="minTemp"></td></tr>
-                <tr><td>Max Temperature</td><td><input type="text" name="maxTemp"></td></tr>
+                <tr>
+                    <td>Bio Count</td>
+                    <td>
+                        <input type="text" name="bioCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Star Class</td>
+                    <td>
+                        <select name="starclass">
+                            {% for sc in starclasses %}
+                                <option value="{{ sc }}" selected> {{ sc }} </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Planet Type</td>
+                    <td>
+                        <select name="planetType">
+                            {% for pt in planetTypes %}
+                                <option value="{{ pt }}" selected> {{ pt }} </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Atmospheric Composition</td>
+                    <td>
+                        <select name="atmossphericComposition">
+                            {% for ac in atmossphericCompositions %}
+                                <option value="{{ ac }}" selected> {{ ac }} </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Volcanism Type</td>
+                    <td>
+                        <select name="volcanismType">
+                            {% for vt in volcanismTypes %}
+                                <option value="{{ vt }}" selected> {{ vt }} </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Atmospheric Pressure</td>
+                    <td>
+                        <input type="text" name="atmossphericPressure">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gravity</td>
+                    <td>
+                        <input type="text" name="gravity">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Min Temperature</td>
+                    <td>
+                        <input type="text" name="minTemp">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Max Temperature</td>
+                    <td>
+                        <input type="text" name="maxTemp">
+                    </td>
+                </tr>
             </table>
             <button type="submit">Predict</button>
         </form>

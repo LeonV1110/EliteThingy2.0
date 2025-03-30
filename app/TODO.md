@@ -1,4 +1,5 @@
 - Add dropdowns
+- Show filled out planet
 - Make fields keep value inbetween loads
 - Enter found bio-maintypes
 - Enter found bio-subtypes

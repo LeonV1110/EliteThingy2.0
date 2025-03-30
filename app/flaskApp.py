@@ -9,13 +9,18 @@ app = flask.Flask(__name__)
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     
-    jsonBody = []
     leastValue = []
     mostValue = []
     sortedAllPossible = []
     totalLeast = -1
     totalMost = -1
     error = ''
+
+    starclasses = [e._name_ for e in Starclass]
+    planetTypes = [e._name_ for e in PlanetType]
+    atmossphericCompositions = [e._name_ for e in AtmossphericComposition]
+    volcanismTypes = [e._name_ for e in VolcanismType]
+
     if flask.request.method == 'POST':
         try:
             bioCount = int(flask.request.form.get('bioCount'))
@@ -34,7 +39,6 @@ def home():
             all_bio = Input.read_biologicals("app\\biologicals")
 
 
-            jsonBody = body.to_json()
             leastValue = get_least_valuable_biologicals(body, all_bio)
             mostValue = get_most_valuable_biologicals(body, all_bio)
             allPossible = get_possible_biologicals(body, all_bio)
@@ -49,9 +53,11 @@ def home():
     return flask.render_template('index.html', 
                                     error = error,
                                     totalLeast = totalLeast, totalMost=totalMost, 
-                                    jsonBody = jsonBody, 
+                                    body = body, 
                                     leastValue = leastValue, mostValue = mostValue, 
-                                    allPossible = sortedAllPossible)
+                                    allPossible = sortedAllPossible,
+                                    starclasses = starclasses, planetTypes = planetTypes,
+                                    atmossphericCompositions = atmossphericCompositions, volcanismTypes = volcanismTypes)
 
 
 if __name__ == '__main__':
