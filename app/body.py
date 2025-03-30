@@ -59,3 +59,19 @@ class jsonBody(Body):
         self.gravity = jsonDict["Gravity"]
         self.minTemperature = jsonDict["minTemp"]
         self.maxTemperature = jsonDict["maxTemp"]
+
+class emptyBody(Body):
+    def __init__(self):
+        self.name = ''
+        self.id = 0
+        self.systemName = ''
+        self.systemId = 0
+        self.biologicalCount = BioType.Aleoida
+        self.parentStar = Starclass.A
+        self.planetType = PlanetType.Rock
+        self.atmossphericComposition = AtmossphericComposition.Any
+        self.volcamismType = VolcanismType.Any
+        self.atmosphericPressure = AtmossphericComposition.Any
+        self.gravity = 0
+        self.minTemperature = 0
+        self.maxTemperature = 1

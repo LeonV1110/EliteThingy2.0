@@ -1,5 +1,5 @@
 import flask
-from body import Body
+from body import Body, emptyBody
 from enums import Starclass, PlanetType, AtmossphericComposition, VolcanismType, BioType
 from input import Input
 from main import get_possible_biologicals, get_most_valuable_biologicals, get_least_valuable_biologicals, get_total_value
@@ -15,7 +15,7 @@ def home():
     totalLeast = -1
     totalMost = -1
     error = ''
-    body = ''
+    body = emptyBody()
 
     starclasses = [e._name_ for e in Starclass]
     planetTypes = [e._name_ for e in PlanetType]
@@ -36,7 +36,7 @@ def home():
 
             
             body = Body('', 0, '', 0, bioCount, starclass, planetType, atmossphericComposition, volcanismType, atmossphericPressure, gravity, minTemp, maxTemp)
-            
+
             all_bio = Input.read_biologicals("app\\biologicals")
 
 
