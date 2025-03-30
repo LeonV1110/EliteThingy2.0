@@ -25,15 +25,14 @@ class Starclass(Enum):
     C           = 9
     S           = 10
     W           = 11
-    Black_Hole  = 12
-    Neutron     = 13
+    BH          = 12
+    N           = 13
     D           = 14
     L           = 15
     T           = 16
     Y           = 17
     Any         = 18
     Ae          = 19
-    N           = 20
     
 
 class PlanetType(Enum):
