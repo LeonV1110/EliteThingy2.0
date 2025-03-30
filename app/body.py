@@ -63,15 +63,15 @@ class jsonBody(Body):
 class emptyBody(Body):
     def __init__(self):
         self.name = ''
-        self.id = 0
+        self.id = -1
         self.systemName = ''
-        self.systemId = 0
+        self.systemId = -1
         self.biologicalCount = BioType.Aleoida
         self.parentStar = Starclass.A
         self.planetType = PlanetType.Rock
         self.atmossphericComposition = AtmossphericComposition.Any
         self.volcamismType = VolcanismType.Any
-        self.atmosphericPressure = AtmossphericComposition.Any
-        self.gravity = 0
-        self.minTemperature = 0
-        self.maxTemperature = 1
+        self.atmosphericPressure = -1
+        self.gravity = -1
+        self.minTemperature = -1
+        self.maxTemperature = -1
