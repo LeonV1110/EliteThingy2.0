@@ -3,8 +3,8 @@
 - allow it to be run from anywhere
 
 # Features
+- darkmode
 - allow for multiple star input
-- show genetic diversity distances
 - add units
 - multiple options for sorting all possible
 - make found bio also work with just maintype
@@ -12,3 +12,8 @@
 - Journal plugin
 - Data driven distributions per bio-subtype
 - Likelyhood data
+
+
+# data 
+- planet material composition
+- genetic diversity distances
