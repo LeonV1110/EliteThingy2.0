@@ -11,7 +11,7 @@
         {{error}}
         {% endif %}
     </div>
-    <div name="planetInput" style="width: 300px; display: table-cell;">
+    <div name="planetInput" style="width: 50%; display: table-cell;">
         <div>
             <h1>Enter you planet details:</h1>
             <form method="post">
@@ -92,10 +92,32 @@
             </form>
         </div>
     </div>
-    <div class="bioInput" style="width: 300px; display: table-cell;">
+    <div class="bioInput" style="width: 50%; display: table-cell;">
         <h1>Bio Input</h1>
         <form method="post">
-            <input type="text" name="test">
+            <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Main type:</td>
+                    <td>Sub type:</td>
+                </tr>
+            </thead>
+            {% set bio_count = body.biologicalCount | default(0) %}
+            {% for i in range(1, bio_count+1) %}
+                <tr>
+                    <td>
+                        Biological {{i}}
+                    </td>
+                    <td>
+                        <input type="text" name="mainType_{{i}}">
+                    </td>
+                    <td>
+                        <input type="text" name="subType_{{i}}">
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
         </form>
     </div>
     

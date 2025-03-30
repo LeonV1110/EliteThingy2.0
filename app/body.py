@@ -66,7 +66,7 @@ class emptyBody(Body):
         self.id = -1
         self.systemName = ''
         self.systemId = -1
-        self.biologicalCount = BioType.Aleoida
+        self.biologicalCount = 0
         self.parentStar = Starclass.A
         self.planetType = PlanetType.Rock
         self.atmossphericComposition = AtmossphericComposition.Any

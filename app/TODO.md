@@ -1,5 +1,3 @@
-- Enter found bio-maintypes
-- Enter found bio-subtypes
 - Journal plugin
 - Data driven distributions per bio-subtype
 - Likelyhood data

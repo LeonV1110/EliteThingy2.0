@@ -24,6 +24,7 @@ def home():
 
     if flask.request.method == 'POST':
         try:
+            # Input
             bioCount = int(flask.request.form.get('bioCount'))
             starclass = Starclass[(flask.request.form.get('starclass'))]
             planetType = PlanetType[(flask.request.form.get('planetType'))]
@@ -34,18 +35,34 @@ def home():
             minTemp = int(flask.request.form.get('minTemp'))
             maxTemp = int(flask.request.form.get('maxTemp'))
 
-            
+
             body = Body('', 0, '', 0, bioCount, starclass, planetType, atmossphericComposition, volcanismType, atmossphericPressure, gravity, minTemp, maxTemp)
 
             all_bio = Input.read_biologicals("app\\biologicals")
 
+            # Read in data from optional already found biologicals
+            main_type_keys = [key for key in flask.request.form.keys() if key.startswith("mainType_")]
+            bio_count = len(main_type_keys)
+            already_found = []
 
-            leastValue = get_least_valuable_biologicals(body, all_bio)
-            mostValue = get_most_valuable_biologicals(body, all_bio)
-            allPossible = get_possible_biologicals(body, all_bio)
+            for i in range(1, bio_count + 1):
+                main_type = flask.request.form.get(f"mainType_{i}")
+                sub_type = flask.request.form.get(f"subType_{i}")
+                
+                for bio in all_bio:
+                    if bio.mainType._name_ == main_type and bio.subType == sub_type:
+                        already_found.append(bio)
 
-            totalLeast = f"{get_total_value(body, leastValue):,}".replace(",",".")
-            totalMost = f"{get_total_value(body, mostValue):,}".replace(",",".")
+            # Output
+            leastValue = get_least_valuable_biologicals(body, all_bio, already_found)
+            mostValue = get_most_valuable_biologicals(body, all_bio, already_found)
+            allPossible = get_possible_biologicals(body, all_bio, already_found)
+
+            least_found = already_found + leastValue
+            most_found = already_found + mostValue
+
+            totalLeast = f"{get_total_value(body, least_found):,}".replace(",",".")
+            totalMost = f"{get_total_value(body, most_found):,}".replace(",",".")
 
             sortedAllPossible = sorted(allPossible, key= lambda x: x.value)
             sortedAllPossible.reverse()
