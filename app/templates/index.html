@@ -19,7 +19,7 @@
                 <tr>
                     <td>Bio Count</td>
                     <td>
-                        <input type="text" name="bioCount">
+                        <input type="text" name="bioCount" value="{{body.biologicalCount}}">
                     </td>
                 </tr>
                 <tr>
@@ -27,7 +27,7 @@
                     <td>
                         <select name="starclass">
                             {% for sc in starclasses %}
-                                <option value="{{ sc }}" selected> {{ sc }} </option>
+                                <option value="{{ sc }}" {% if sc == body.parentStar._name_ %}selected{% endif %}> {{ sc }} </option>
                             {% endfor %}
                         </select>
                     </td>
@@ -37,7 +37,7 @@
                     <td>
                         <select name="planetType">
                             {% for pt in planetTypes %}
-                                <option value="{{ pt }}" selected> {{ pt }} </option>
+                                <option value="{{ pt }}" {% if sc == body.planetType._name_ %}selected{% endif %}> {{ pt }} </option>
                             {% endfor %}
                         </select>
                     </td>
@@ -47,7 +47,7 @@
                     <td>
                         <select name="atmossphericComposition">
                             {% for ac in atmossphericCompositions %}
-                                <option value="{{ ac }}" selected> {{ ac }} </option>
+                                <option value="{{ ac }}" {% if sc == body.atmossphericComposition._name_ %}selected{% endif %}> {{ ac }} </option>
                             {% endfor %}
                         </select>
                     </td>
@@ -57,7 +57,7 @@
                     <td>
                         <select name="volcanismType">
                             {% for vt in volcanismTypes %}
-                                <option value="{{ vt }}" selected> {{ vt }} </option>
+                                <option value="{{ vt }}" {% if sc == body.volcamismType._name_ %}selected{% endif %}> {{ vt }} </option>
                             {% endfor %}
                         </select>
                     </td>
@@ -65,25 +65,25 @@
                 <tr>
                     <td>Atmospheric Pressure</td>
                     <td>
-                        <input type="text" name="atmossphericPressure">
+                        <input type="text" name="atmossphericPressure" value="{{ body.atmosphericPressure }}">
                     </td>
                 </tr>
                 <tr>
                     <td>Gravity</td>
                     <td>
-                        <input type="text" name="gravity">
+                        <input type="text" name="gravity" value="{{ body.gravity }}">
                     </td>
                 </tr>
                 <tr>
                     <td>Min Temperature</td>
                     <td>
-                        <input type="text" name="minTemp">
+                        <input type="text" name="minTemp" value="{{ body.minTemperature }}">
                     </td>
                 </tr>
                 <tr>
                     <td>Max Temperature</td>
                     <td>
-                        <input type="text" name="maxTemp">
+                        <input type="text" name="maxTemp" value="{{ body.maxTemperature}}">
                     </td>
                 </tr>
             </table>

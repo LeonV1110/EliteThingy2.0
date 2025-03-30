@@ -15,6 +15,7 @@ def home():
     totalLeast = -1
     totalMost = -1
     error = ''
+    body = ''
 
     starclasses = [e._name_ for e in Starclass]
     planetTypes = [e._name_ for e in PlanetType]
@@ -35,7 +36,7 @@ def home():
 
             
             body = Body('', 0, '', 0, bioCount, starclass, planetType, atmossphericComposition, volcanismType, atmossphericPressure, gravity, minTemp, maxTemp)
-
+            
             all_bio = Input.read_biologicals("app\\biologicals")
 
 
