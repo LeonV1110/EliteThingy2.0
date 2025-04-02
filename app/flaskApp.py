@@ -38,7 +38,7 @@ def home():
 
             body = Body('', 0, '', 0, bioCount, starclass, planetType, atmossphericComposition, volcanismType, atmossphericPressure, gravity, minTemp, maxTemp)
 
-            all_bio = Input.read_biologicals("biologicals")
+            all_bio = Input.read_biologicals("app\\biologicals")
 
             # Read in data from optional already found biologicals
             main_type_keys = [key for key in flask.request.form.keys() if key.startswith("mainType_")]
