@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 reading_spansh_testing/galaxy_1month.json
 reading_spansh_testing/galaxy_1day.json
+reading_spansh_testing/galaxy.json.gz
